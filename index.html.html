@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Online IQ Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        iframe {
+            margin: 20px 0;
+        }
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            background-color: #0070ba;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005b9d;
+        }
+        .booking-section {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            display: inline-block;
+            border-radius: 10px;
+        }
+        select, input[type="date"] {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .centered-button {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Book Online IQ Test</h1>
+    <p>Take your IQ test online anytime, anywhere.</p>
+
+    <!-- Embedded YouTube video -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY" 
+        title="Online IQ Test Video" frameborder="0" allowfullscreen></iframe>
+
+    <!-- Booking section -->
+    <div class="booking-section">
+        <h2>📅 Book Your Time Slot for Today</h2>
+        
+        <!-- Fixed today's date -->
+        <input type="date" id="bookingDate" readonly>
+        
+        <!-- 1-hour slot selector -->
+        <select id="timeSlot">
+            <option value="">-- Select a Time Slot --</option>
+            <option>09:00 - 10:00</option>
+            <option>10:00 - 11:00</option>
+            <option>11:00 - 12:00</option>
+            <option>12:00 - 13:00</option>
+            <option>13:00 - 14:00</option>
+            <option>14:00 - 15:00</option>
+            <option>15:00 - 16:00</option>
+            <option>16:00 - 17:00</option>
+        </select>
+        
+        <br>
+        <button onclick="bookSlot()">Book Now</button>
+        <p id="confirmationMsg" style="color: green; margin-top: 15px;"></p>
+    </div>
+
+    <!-- Centered registration button -->
+    <div class="centered-button">
+        <button onclick="window.location.href='https://your-portal.com/cart.aspx';">
+            Proceed to Registration
+        </button>
+    </div>
+
+    <script>
+        // Set booking date to today's date
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('bookingDate').value = today;
+
+        function bookSlot() {
+            const timeSlot = document.getElementById('timeSlot').value;
+            if (!timeSlot) {
+                alert("Please select a time slot.");
+                return;
+            }
+            const msg = `✅ You have booked the ${timeSlot} slot for ${today}.`;
+            document.getElementById('confirmationMsg').innerText = msg;
+        }
+    </script>
+
+</body>
+</html>
